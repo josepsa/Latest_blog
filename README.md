@@ -1,5 +1,6 @@
 # Latest_blog
-1. Create virtal enviornment using Python 3.7
+
+1.Create virtal enviornment using Python 3.7
 
 2.Install requirements
 
