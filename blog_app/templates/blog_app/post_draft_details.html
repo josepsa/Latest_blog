@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>{{ post.title }}</h1>
+        <h6>Posted by {{ post.author }}</h6>
+        <h6>Created on: {{ post.created_date }}</h6>
+        <p>{{ post.text }}</p>
+        <h6>Not published</h6>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="jumbotron">
+    <h1>{{ post.title }}</h1>
+    {% if post.published_date %}
+        <div><h6>Published on {{ post.published_date }}</h6></div>
+        <h6>Posted by {{ post.author }}</h6>
+        <p>{{ post.text }}</p>
+    {% else %}
+        <h6>Posted by {{ post.author }}</h6>
+        <h6>Not published</h6>
+        <p>{{ post.text }}</p>
+    {% endif %}
+    </div>
+{% endblock %}

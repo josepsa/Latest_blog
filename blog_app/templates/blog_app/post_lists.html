@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="jumbotron">
+      {% for i in post_list %}
+      <!--    post_list comes from name of model in small letter + '_list'-->
+      <div>
+          <h1><a href="{% url 'blog_app:post_details' pk=i.pk %}">{{ i.title }}</a> </h1>
+      </div>
+          <p>Published on:{{ i.published_date|date:"g:i:s A d-M-Y" }}</p>
+          <p>Posted by {{ i.author }}</p>
+      {% endfor %}
+  </div>
+{% endblock %}
