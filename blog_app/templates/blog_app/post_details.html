@@ -6,10 +6,16 @@
         <div><h6>Published on {{ post.published_date }}</h6></div>
         <h6>Posted by {{ post.author }}</h6>
         <p>{{ post.text }}</p>
+        <p><a class="btn btn-primary" href="{% url 'blog_app:add_comment' pk=post.pk %}">Add comment</a></p>
+        <p><a class="btn btn-primary " href="{% url 'bog_app:post_add_comment' pk=post.pk %}">Add comment</a></p>
+
     {% else %}
         <h6>Posted by {{ post.author }}</h6>
         <h6>Not published</h6>
         <p>{{ post.text }}</p>
+         <a class="btn btn-primary" href="{% url 'blog_app:post_publish' pk=post.pk %}">Publish</a>
+
     {% endif %}
-    </div>
+
+
 {% endblock %}

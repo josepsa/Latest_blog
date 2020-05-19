@@ -6,5 +6,6 @@
         <h6>Created on: {{ post.created_date }}</h6>
         <p>{{ post.text }}</p>
         <h6>Not published</h6>
+        <a class="btn btn-primary" href="{% url 'blog_app:post_publish' pk=post.pk %}">Publish</a>
     </div>
 {% endblock %}

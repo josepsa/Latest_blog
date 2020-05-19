@@ -21,9 +21,9 @@
         <ul class="navbar-n">
             {% if user.is_authenticated %}
                 <li><a href="{% url 'blog_app:post_create' %}">Create Post</a> </li>
-                <li><a href="{% url 'user_accounts_app:signout' %}">Sign out</a> </li>
                 <li><a href="{% url 'blog_app:post_lists' %}">View Posts</a> </li>
                 <li><a href="{% url 'blog_app:post_drafts_list' %}">View Draft</a> </li>
+                <li><a href="{% url 'user_accounts_app:signout' %}">Sign out</a> </li>
             {% else %}
                 <li><a href="{% url 'user_accounts_app:signin' %}">Sign In</a> </li>
                 <li><a href="{% url 'user_accounts_app:signup' %}">Sign Up</a> </li>

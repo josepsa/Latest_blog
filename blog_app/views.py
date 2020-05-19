@@ -1,4 +1,5 @@
 from django.contrib.auth import mixins
+from django.contrib.auth import decorators
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
@@ -7,13 +8,6 @@ from django.utils import timezone
 from django.views import generic
 from . import models
 from . import forms
-
-from django.contrib.auth import models as auth_model
-
-from crum import get_current_user
-
-
-
 
 
 class PostListView(generic.ListView):
@@ -37,14 +31,26 @@ class PostCreateView(generic.CreateView,mixins.LoginRequiredMixin):
 class PostDraftView(generic.ListView):
     model=models.Post
     template_name = 'blog_app/post_drafts.html'
-    current_user = get_current_user()
 
     def get_queryset(self):
-        #return models.Post.objects.filter(author=auth_model.User.User.username).order_by('-created_date')
-        return models.Post.objects.order_by('-created_date')
+        return models.Post.objects.filter(author=self.request.user).order_by('-created_date')
+
 
 
 class PostDraftDetailsView(generic.DetailView):
     model = models.Post
     template_name = 'blog_app/post_draft_details.html'
+
+
+@decorators.login_required
+def post_publish(request,pk):
+    post=get_object_or_404(models.Post,pk=pk)
+    post.publish()
+    return redirect('blog_app:post_details',pk=pk)
+
+
+class CommentCreateView(generic.CreateView,mixins.LoginRequiredMixin):
+    model = models.Comment
+    template_name = 'blog_app/add_comment.html'
+    form_class = forms.CommentForm
 
