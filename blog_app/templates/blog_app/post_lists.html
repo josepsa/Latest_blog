@@ -6,8 +6,9 @@
       <div>
           <h1><a href="{% url 'blog_app:post_details' pk=i.pk %}">{{ i.title }}</a> </h1>
       </div>
-          <p>Published on:{{ i.published_date|date:"g:i:s A d-M-Y" }}</p>
-          <p>Posted by {{ i.author }}</p>
+            <p>Published on: {{ i.published_date }}</p>
+            <p>Posted by <strong>{{ i.author }}</strong></p>
+            <p>{{ i.comments.count }} Comments</p>
       {% endfor %}
   </div>
 {% endblock %}

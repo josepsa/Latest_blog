@@ -36,7 +36,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    post=models.ForeignKey(Post,on_delete=models.CASCADE,blank=True,null=True)
+    post=models.ForeignKey(Post,on_delete=models.CASCADE,blank=True,null=True,related_name='comments')
+    ##this related name is used in templates
     text=models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
     created_by=models.ForeignKey(User,on_delete=models.CASCADE,blank=True,null=True,default=None)
