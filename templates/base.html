@@ -22,7 +22,8 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container">
     <a href="{% url 'index' %}" class="navbar-brand">Blog</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,6 +43,7 @@
             <a class="nav-item nav-link active" href="{% url 'blog_app:post_lists' %}">View Posts</a>
             {% endif %}
         </div>
+    </div>
     </div>
 </nav>
 <div class="container mycontent">

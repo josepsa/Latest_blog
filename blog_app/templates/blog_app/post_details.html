@@ -8,6 +8,10 @@
         <p>{{ post.text }}</p>
         {% if user.is_authenticated %}
             <a class="btn btn-primary" href="{% url 'blog_app:add_comment' pk=post.pk %}">Add comment</a>
+            {% if post.author == user %}
+                <a class="btn btn-primary" href="{% url 'blog_app:post_update' pk=post.pk %}">Update Blog</a>
+                <a class="btn btn-primary" href="{% url 'blog_app:post_delete' pk=post.pk %}">Delete Blog</a>
+            {% endif %}
         {% endif %}
         <p><strong>{{ post.comments.count }} comments</strong></p>
         {% for i in post.comments.all %}
@@ -21,8 +25,7 @@
         <h6>Not published</h6>
         <p>{{ post.text }}</p>
          <a class="btn btn-primary" href="{% url 'blog_app:post_publish' pk=post.pk %}">Publish</a>
+        <a class="btn btn-primary" href="{% url 'blog_app:post_update' pk=post.pk %}">Update Blog</a>
 
     {% endif %}
-
-
 {% endblock %}

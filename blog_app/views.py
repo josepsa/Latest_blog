@@ -3,6 +3,7 @@ from django.contrib.auth import decorators
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
+from django.urls import reverse_lazy, reverse
 from django.utils import timezone
 
 from django.views import generic
@@ -61,5 +62,18 @@ def add_comment(request,pk):
     else:
         form=forms.CommentForm
         return render(request, 'blog_app/add_comment.html', {'form': form})  #this if for the GET request to return form
+
+
+class PostUpdateView(mixins.LoginRequiredMixin,generic.UpdateView):
+    model = models.Post
+    template_name = 'blog_app/post_update.html'
+    form_class = forms.PostForm
+    #redirect_field_name = 'blog_app/post_details.html'
+
+class PostdeleteView(mixins.LoginRequiredMixin,generic.DeleteView):
+    model = models.Post
+    template_name = 'blog_app/post_delete.html'
+    success_url = reverse_lazy('blog_app:post_lists')
+
 
 

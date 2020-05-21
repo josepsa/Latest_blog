@@ -7,5 +7,7 @@
         <p>{{ post.text }}</p>
         <h6>Not published</h6>
         <a class="btn btn-primary" href="{% url 'blog_app:post_publish' pk=post.pk %}">Publish</a>
+        <a class="btn btn-primary" href="{% url 'blog_app:post_update' pk=post.pk %}">Update Blog</a>
+        <a class="btn btn-primary" href="{% url 'blog_app:post_delete' pk=post.pk %}">Delete Blog</a>
     </div>
 {% endblock %}
