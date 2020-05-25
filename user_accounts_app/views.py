@@ -6,6 +6,8 @@ from django.views import generic
 
 from . import forms
 
+from django.contrib.auth import views as auth_views
+
 
 
 

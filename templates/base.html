@@ -43,8 +43,8 @@
             <a class="nav-item nav-link active" href="{% url 'blog_app:post_create' %}">Create Post</a>
             <a class="nav-item nav-link active" href="{% url 'blog_app:post_lists' %}">View Posts</a>
             <a class="nav-item nav-link active" href="{% url 'blog_app:post_drafts_list' %}">View Draft</a>
+            <a class="nav-item nav-link active" href="{% url 'user_accounts_app:change_password' %}">Change Password</a>
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:signout' %}">Sign out</a>
-
             {% else %}
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:signin' %}">Sign In</a>
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:signup' %}">Sign Up</a>

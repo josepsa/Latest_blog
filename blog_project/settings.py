@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog_app',
     'user_accounts_app',
 
+
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,5 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL='index'
 LOGOUT_REDIRECT_URL='thanks'
+
+
