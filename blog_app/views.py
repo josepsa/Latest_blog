@@ -76,4 +76,21 @@ class PostdeleteView(mixins.LoginRequiredMixin,generic.DeleteView):
     success_url = reverse_lazy('blog_app:post_lists')
 
 
+class CommentUpdateView(mixins.LoginRequiredMixin,generic.UpdateView):
+    model = models.Comment
+    template_name = 'blog_app/comment_update.html'
+    form_class = forms.CommentForm
+    success_url = reverse_lazy('blog_app:post_lists')
+
+class CommentRemoveView(mixins.LoginRequiredMixin,generic.DeleteView):
+    model = models.Comment
+    template_name = 'blog_app/comment_delete.html'
+    success_url = reverse_lazy('blog_app:post_lists')
+
+# @decorators.login_required
+# def CommentRemoveView(request,pk):
+#     comment=get_object_or_404(models.Comment,pk)
+#     post_pk=comment.post.pk
+#     comment.delete()
+#     return  redirect('blog_app:post_details',post_pk)
 

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-    <div class="jumbotron">
+{% load static %}
+    <div >
     <h1>{{ post.title }}</h1>
     {% if post.published_date %}
         <div><h6>Published on {{ post.published_date }}</h6></div>
@@ -17,7 +18,18 @@
         {% for i in post.comments.all %}
 <!--            'comments' comes from related name of models foregin key-->
                 <p><strong>{{ i.created_by }}</strong> at {{ i.created_date }}</p>
-                <p>{{ i.text|safe|linebreaks }}</p>
+                <p>{{ i.text|safe|linebreaks }}
+                {% if i.created_by == user %}
+                    <a class="btn btn-info" href="{% url 'blog_app:comment_update' pk=i.pk %}">
+                        update comment</a>
+                    <a class="btn btn-info" href="{% url 'blog_app:comment_delete' pk=i.pk %}">
+                        Delete comment </a>
+                {% endif %} </p>
+<!--                <p>-->
+<!--                    {% if i.post.author == user %}-->
+<!--                    <a class="btn btn-info" href="{% url 'blog_app:comment_delete' pk=i.pk %}">-->
+<!--                        Delete comment</a>-->
+<!--                {% endif %} </p>-->
 
         {% endfor %}
     {% else %}
@@ -26,6 +38,7 @@
         <p>{{ post.text }}</p>
          <a class="btn btn-primary" href="{% url 'blog_app:post_publish' pk=post.pk %}">Publish</a>
         <a class="btn btn-primary" href="{% url 'blog_app:post_update' pk=post.pk %}">Update Blog</a>
-
+    </div>
     {% endif %}
+        <script src="{% static 'blog_app/js/medium-editor.js' %}"></script>
 {% endblock %}

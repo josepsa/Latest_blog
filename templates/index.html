@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
+<div>
 <h1>Publish your passions, your way</h1>
 <h2>Create a unique and beautiful blog. It’s easy and free.</h2>
 {% if user.is_authenticated %}
@@ -7,4 +8,5 @@
 {% else %}
      <a class="btn btn-primary" href="{% url 'user_accounts_app:signin' %}">CREATE YOUR BLOG</a>
 {% endif %}
+</div>
 {% endblock %}

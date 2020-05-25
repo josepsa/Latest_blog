@@ -1,9 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
+{% load static %}
+    <div>
     <h1>Create Blog</h1>
-    <form method="POST">
+    <form class="editable" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
+          {{ form.as_p }}
+
         <button type="submit" class="save btn btn-primary">Save</button>
     </form>
+
+            <script src="{% static 'blog_app/js/medium-editor.js' %}"></script>
+        </div>
+
+
+
 {% endblock %}

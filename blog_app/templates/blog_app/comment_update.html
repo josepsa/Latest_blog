@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <div >
-    <h1>Add comment</h1>
+    <h1>Update comment</h1>
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Add comment</button>
+        <button type="submit" class="save btn btn-primary">Update</button>
     </form>
-</div>
+    </div>
+
 {% endblock %}
