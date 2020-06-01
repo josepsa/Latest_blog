@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap3',
+    'session_security',
     'blog_app',
     'user_accounts_app',
 
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'crum.CurrentRequestUserMiddleware',
+    'session_security.middleware.SessionSecurityMiddleware',
 ]
 
 ROOT_URLCONF = 'blog_project.urls'
@@ -70,6 +72,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
             ],
         },
     },
@@ -135,5 +138,9 @@ STATICFILES_DIRS = [
 
 LOGIN_REDIRECT_URL='index'
 LOGOUT_REDIRECT_URL='thanks'
+
+
+SESSION_SECURITY_EXPIRE_AFTER=900
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 
 

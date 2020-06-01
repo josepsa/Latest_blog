@@ -23,5 +23,6 @@ urlpatterns = [
     path('user_accounts_app/',include('user_accounts_app.urls')),
     path('blog_app/',include('blog_app.urls')),
     # path('welcome/',views.Welcome.as_view(),name='welcome'), replaced it with index page in setting.py
-    path('thanks/',views.Thanks.as_view(),name='thanks')
+    path('thanks/',views.Thanks.as_view(),name='thanks'),
+    path('session_security/', include('session_security.urls')),
 ]

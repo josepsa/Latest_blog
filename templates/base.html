@@ -22,7 +22,9 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 <!--Custom CSS-->
 
-    <link rel="stylesheet" type="text/css" href="{% static 'blog_app/css/blog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog_app/css/master.css' %}">
+
+    {% include 'session_security/all.html' %}
 </head>
 <body>
 
@@ -45,10 +47,12 @@
             <a class="nav-item nav-link active" href="{% url 'blog_app:post_drafts_list' %}">View Draft</a>
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:change_password' %}">Change Password</a>
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:signout' %}">Sign out</a>
+            <p id="time_id"></p>
             {% else %}
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:signin' %}">Sign In</a>
             <a class="nav-item nav-link active" href="{% url 'user_accounts_app:signup' %}">Sign Up</a>
             <a class="nav-item nav-link active" href="{% url 'blog_app:post_lists' %}">View Posts</a>
+            <p id="time_id"></p>
             {% endif %}
         </div>
     </div>
@@ -61,5 +65,5 @@
 </div>
 </body>
 <!--<script src="{% static 'social_clone/js/master.js' %}"></script>-->
-
+<script type="text/javascript" src="{% static 'blog_app/js/time.js' %}"></script>
 </html>

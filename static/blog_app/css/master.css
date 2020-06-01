@@ -1,0 +1,9 @@
+#time_id{
+    position: fixed;
+    top: 0px !important;
+    right: 0px !important;
+    width: 200px;
+    height: 200px;
+}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog_app/css/master.css' %}">
