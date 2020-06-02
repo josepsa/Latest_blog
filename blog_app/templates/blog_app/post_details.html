@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <div >
+    <div class="jumbotron">
     <h1>{{ post.title }}</h1>
     {% if post.published_date %}
         <div><h6>Published on {{ post.published_date }}</h6></div>
@@ -40,5 +40,5 @@
         <a class="btn btn-primary" href="{% url 'blog_app:post_update' pk=post.pk %}">Update Blog</a>
     </div>
     {% endif %}
-        <script src="{% static 'blog_app/js/medium-editor.js' %}"></script>
+<!--        <script src="{% static 'blog_app/js/medium-editor.js' %}"></script>-->
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-    <div>
+    <div class="jumbotron">
     <form method="POST">
         {% csrf_token %}
         <h2>Are you sure you want to delete comment "{{ object }}" ?</h2>

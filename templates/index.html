@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<div>
-<h1>Publish your passions, your way</h1>
-<h2>Create a unique and beautiful blog. It’s easy and free.</h2>
+
+<div class="jumbotron">
+    {% if user.is_authenticated %}
+<h4 class="welcomeuser">Welcome {{ user }},</h4>
+{% endif %}
+    <h1>Publish your passions, your way</h1>
+    <h2>Create a unique and beautiful blog. It’s easy and free.</h2>
 {% if user.is_authenticated %}
     <a class="btn btn-primary" href="{% url 'blog_app:post_create' %}">CREATE YOUR BLOG</a>
 {% else %}
