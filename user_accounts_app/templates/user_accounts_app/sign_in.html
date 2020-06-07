@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load bootstrap3 %}
 
+{% load socialaccount %}
+{% providers_media_js %}
 
 {% block content %}
 <div class="jumbotron">
@@ -9,7 +11,10 @@
         {% csrf_token %}
         {% bootstrap_form form %}
         <input type="submit" class="btn btn-primary" value="Sign In">
+         <a class="btn btn-primary" href="{% provider_login_url 'facebook' method='oauth2' %}">Sign in with Facebook</a>
+        <a class="btn btn-primary" href="{% provider_login_url 'google' %}">Sign in with Google</a>
     </form>
+
 
 </div>
 

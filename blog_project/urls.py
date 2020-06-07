@@ -25,4 +25,6 @@ urlpatterns = [
     # path('welcome/',views.Welcome.as_view(),name='welcome'), replaced it with index page in setting.py
     path('thanks/',views.Thanks.as_view(),name='thanks'),
     path('session_security/', include('session_security.urls')),
+    path('accounts/',include('allauth.urls')),
+    #path('captcha/',include('captcha.urls')),
 ]

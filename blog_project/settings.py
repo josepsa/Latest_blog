@@ -27,7 +27,7 @@ SECRET_KEY = '2=u+^m!39pwu#ykfv(s7y%x43+25o26=hh*qprr01&e_80jy*r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','localhost',]
 
 
 # Application definition
@@ -39,11 +39,23 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django.contrib.sites',
     'bootstrap3',
     'session_security',
     'blog_app',
     'user_accounts_app',
 
+    ##all auth for social account authentication
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    #providers
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+
+    ##Captca
+    'captcha',
 
 ]
 
@@ -142,5 +154,8 @@ LOGOUT_REDIRECT_URL='thanks'
 
 SESSION_SECURITY_EXPIRE_AFTER=900
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
+
+
+SITE_ID=1  ##Social auth
 
 
